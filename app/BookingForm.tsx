@@ -172,6 +172,15 @@ const services = {
     "Natural Gorgeous Maekup - ₹8,000",
     "Bridal HD Makeup (Per Sitting) - ₹15,000",
   ],
+
+    PMU: [
+    "Microblading - ₹12000",
+    "Combination Brows - ₹12000",
+    "Nano Brows - ₹15000",
+    "Lip Blush - ₹4000",
+    "Lip Liner - ₹4000",
+    "Lip Correction - ₹4000",
+  ],
 };
 
 type Category = keyof typeof services;
@@ -186,10 +195,11 @@ export default function BookingForm() {
       const service = sessionStorage.getItem("glamBookingService");
 
       if (
-        category === "Women" ||
-        category === "Men" ||
-        category === "Bridal"
-      ) {
+  category === "Women" ||
+  category === "Men" ||
+  category === "Bridal" ||
+  category === "PMU"
+) {
         setSelectedCategory(category);
       }
 
@@ -211,7 +221,8 @@ export default function BookingForm() {
       if (
         category === "Women" ||
         category === "Men" ||
-        category === "Bridal"
+        category === "Bridal" ||
+        category === "PMU"
       ) {
         setSelectedCategory(category);
         setSelectedService(service);
@@ -378,6 +389,7 @@ Thank you!`;
             <option value="Women">Women</option>
             <option value="Men">Men</option>
             <option value="Bridal">Bridal</option>
+            <option value="PMU">PMU</option>
           </select>
         </div>
 
