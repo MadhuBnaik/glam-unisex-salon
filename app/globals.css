@@ -1,26 +1,311 @@
 @import "tailwindcss";
 
+/* =========================================
+   GLAM — LUXURY SALON THEME
+   Black × GLAM Purple × Ivory
+   ========================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #080808;
+  --foreground: #f3eee5;
+
+  --glam-purple: #b868e0;
+  --glam-ivory: #f3eee5;
+  --glam-muted: #a9a3a9;
+  --glam-black: #080808;
+  --glam-card: #111111;
+  --glam-border: rgba(184, 104, 224, 0.25);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
+
+  --color-glam-purple: var(--glam-purple);
+  --color-glam-ivory: var(--glam-ivory);
+  --color-glam-muted: var(--glam-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--glam-black);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--glam-black);
+  color: var(--glam-ivory);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================================
+   SELECTION
+   ========================================= */
+
+::selection {
+  background: var(--glam-purple);
+  color: #080808;
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #392644;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--glam-purple);
+}
+
+/* =========================================
+   LINKS
+   ========================================= */
+
+a {
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* =========================================
+   HEADINGS
+   ========================================= */
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.02em;
+}
+
+/* =========================================
+   GLAM DISPLAY FONT
+   ========================================= */
+
+.glam-title,
+.glam-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.glam-title {
+  font-weight: 600;
+}
+
+.glam-heading {
+  font-weight: 500;
+}
+
+/* =========================================
+   GLAM BRAND PURPLE
+   ========================================= */
+
+.glam-brand-text {
+  font-family: var(--font-playfair), Georgia, serif;
+  color: #b868e0;
+  text-shadow: 0 0 30px rgba(184, 104, 224, 0.18);
+}
+
+/* =========================================
+   PURPLE TEXT
+   ========================================= */
+
+.glam-purple {
+  color: var(--glam-purple);
+}
+
+/* =========================================
+   PURPLE LINE
+   ========================================= */
+
+.glam-line {
+  width: 70px;
+  height: 1px;
+  background: var(--glam-purple);
+}
+
+/* =========================================
+   PURPLE BORDER
+   ========================================= */
+
+.glam-border {
+  border: 1px solid var(--glam-border);
+}
+
+/* =========================================
+   PREMIUM CARD
+   ========================================= */
+
+.glam-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.01)
+    ),
+    #111111;
+
+  border: 1px solid rgba(184, 104, 224, 0.16);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.glam-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(184, 104, 224, 0.45);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(184, 104, 224, 0.06);
+}
+
+/* =========================================
+   PREMIUM BUTTON
+   ========================================= */
+
+.glam-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--glam-purple);
+
+  color: var(--glam-purple);
+
+  background: transparent;
+
+  padding: 13px 24px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.glam-button:hover {
+  background: var(--glam-purple);
+  color: #080808;
+
+  box-shadow:
+    0 8px 30px rgba(184, 104, 224, 0.2);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   PURPLE GLOW
+   ========================================= */
+
+.glam-glow {
+  text-shadow:
+    0 0 15px rgba(184, 104, 224, 0.18),
+    0 0 35px rgba(184, 104, 224, 0.08);
+}
+
+/* =========================================
+   IMAGE HOVER
+   ========================================= */
+
+.glam-image {
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.65, 0.3, 1),
+    filter 0.5s ease;
+}
+
+.glam-image:hover {
+  transform: scale(1.04);
+}
+
+/* =========================================
+   FORM INPUTS
+   ========================================= */
+
+input,
+select,
+textarea {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+
+  border-color: var(--glam-purple) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(184, 104, 224, 0.18),
+    0 0 20px rgba(184, 104, 224, 0.05);
+}
+
+/* =========================================
+   FORM PLACEHOLDER
+   ========================================= */
+
+input::placeholder,
+textarea::placeholder {
+  color: #777177;
+}
+
+/* =========================================
+   SMOOTH CONTROLS
+   ========================================= */
+
+button,
+input,
+select,
+textarea {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
