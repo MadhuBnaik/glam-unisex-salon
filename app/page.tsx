@@ -8,6 +8,7 @@ import Services from "./services";
 
 
 const galleryImages = [
+  "glam-9.jpeg",
   "glam-1.jpg",
   "glam-2.jpg",
   "glam-4.jpeg",
@@ -15,6 +16,7 @@ const galleryImages = [
   "glam-6.jpeg",
   "glam-7.jpeg",
   "glam-8.jpg",
+  "glam-10.jpeg",
 ];
 
 export default function Home() {
